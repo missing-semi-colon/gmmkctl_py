@@ -1,0 +1,24 @@
+pkgname=gmmkctl_py-git
+_pkgname=gmmkctl_py
+pkgver=1.0
+pkgrel=1
+pkgdesc="Utility to control the features of a Glorious modular mechanical keyboard"
+install="${_pkgname}.install"
+arch=("any")
+depends=("python" "python-pyusb")
+makedepends=("python-setuptools")
+provides=("$_pkgname")
+conflicts=("$_pkgname")
+source=("git+https://github.com/missing-semi-colon/gmmkctl_py.git")
+md5sums=('SKIP')
+
+
+build() {
+	cd $_pkgname
+	python setup.py build
+}
+
+package() {
+	cd $_pkgname
+	python setup.py install --root="$pkgdir" --optimize=1 --skip-build
+}

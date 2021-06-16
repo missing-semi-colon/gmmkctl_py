@@ -1,0 +1,14 @@
+_pkgname=gmmkctl_py
+
+
+post_install() {
+	site_packages_dir=$(python -c "import site; print(site.getsitepackages()[0])")
+	
+	mkdir -p "$pkgdir/usr/bin/"
+	ln -s "$site_packages_dir/$_pkgname/main.py" "/usr/bin/$_pkgname"
+	chmod +x "/usr/bin/$_pkgname"
+}
+
+post_remove() {
+	rm "/usr/bin/$_pkgname"
+}
