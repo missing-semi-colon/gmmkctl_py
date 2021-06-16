@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 Copyright 2021 paulguy <paulguy119@gmail.com>
 Copyright 2021 missing-semi-colon <https://github.com/missing-semi-colon>
